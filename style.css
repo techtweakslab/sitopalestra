@@ -1,0 +1,733 @@
+/* ============================
+   PALETTE & GLOBAL
+   ============================ */
+:root {
+    --gold: #D6B86E;
+    --gold-dark: #C69A40;
+    --white: #ffffff;
+    --bg: #f8f6f2;
+    --text: #222222;
+    --muted: #777777;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* LINKS */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ============================
+   HEADER STILE GYMKONG
+   ============================ */
+header {
+    width: 100%;
+    padding: 14px 40px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(214,184,110,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 26px;
+}
+
+.nav-menu a {
+    font-size: 13px;
+    letter-spacing: .5px;
+    font-weight: 500;
+    padding-bottom: 4px;
+    position: relative;
+    color: #444;
+}
+
+.nav-menu a.active::after,
+.nav-menu a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+}
+
+/* ============================
+   HERO
+   ============================ */
+.hero {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--white);
+    text-align: center;
+    padding: 110px 20px 90px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto 24px;
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 14px 34px;
+    background: var(--white);
+    color: var(--gold-dark);
+    border-radius: 999px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    transition: 0.2s;
+}
+
+.btn-main:hover {
+    background: #f2e3b3;
+    transform: translateY(-3px);
+}
+
+/* ============================
+   SECTION BASE
+   ============================ */
+.section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--gold-dark);
+    margin-bottom: 28px;
+}
+
+/* PARAGRAPH CENTERED */
+.section .section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 32px;
+    color: var(--muted);
+}
+
+/* ============================
+   CARDS
+   ============================ */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+    transition: 0.25s;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.18);
+}
+
+.btn-small {
+    display: inline-block;
+    margin-top: 14px;
+    background: var(--gold-dark);
+    color: var(--white);
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ============================
+   NUMERI / STATISTICHE
+   ============================ */
+.numbers-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.number-box {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 20px 22px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+}
+
+.number-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--gold-dark);
+}
+
+.number-label {
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+.number-desc {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* ============================
+   DUE COLONNE (IMMAGINE + TESTO)
+   ============================ */
+.two-cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 36px;
+    align-items: center;
+}
+
+.two-cols img {
+    width: 100%;
+    border-radius: 22px;
+    object-fit: cover;
+}
+
+.two-cols h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.two-cols p {
+    color: var(--muted);
+    margin-bottom: 10px;
+}
+
+/* ============================
+   FOOTER A 4 COLONNE
+   ============================ */
+.footer-top {
+    background: #2a2417;
+    color: #f6f2e6;
+    padding: 50px 20px 30px;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.footer-col h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col p,
+.footer-col li,
+.footer-col a {
+    font-size: 0.9rem;
+    color: #e1ddcf;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col li {
+    margin-bottom: 4px;
+}
+
+.footer-col a:hover {
+    text-decoration: underline;
+}
+
+/* footer bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 16px;
+    font-size: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Partner "loghi" placeholder */
+.footer-partners {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-partner-box {
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 6px 10px;
+    font-size: 0.8rem;
+}
+
+/* ============================
+   GENERIC PAGE CONTENT
+   ============================ */
+.page-title-hero {
+    text-align: center;
+    padding: 70px 20px 40px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--white);
+}
+
+.page-title-hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 8px;
+}
+
+.page-title-hero p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* LISTA CORSI */
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+}
+
+.course-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.course-card h3 {
+    margin-bottom: 8px;
+}
+
+.course-card span {
+    display: inline-block;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    color: var(--gold-dark);
+}
+
+.course-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* PLANNING TABLE */
+.planning-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+}
+
+.planning-table th,
+.planning-table td {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.planning-table th {
+    background: #f2e3b3;
+    color: #333;
+}
+
+/* CONTATTI FORM BASE */
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 30px;
+}
+
+.contact-grid form {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.contact-grid label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+.contact-grid input,
+.contact-grid textarea {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+.contact-grid button {
+    border: none;
+    cursor: pointer;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 900px) {
+    header {
+        padding: 12px 16px;
+        justify-content: center;
+    }
+    .nav-menu {
+        display: none; /* versione semplice: solo logo su mobile */
+    }
+}
+
+@media (max-width: 700px) {
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+    .two-cols {
+        grid-template-columns: 1fr;
+    }
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================
+   AGGIUNTE GYMKONG
+   ============================ */
+
+/* HERO CON VIDEO (senza cambiare layout esistente) */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25; /* intensità video */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* PROMO ABBONAMENTI (usate in servizi o evidenza) */
+.promo-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.promo-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    border: 2px solid var(--gold-dark);
+}
+
+.promo-card.highlight {
+    background: #f2e3b3;
+}
+
+.promo-card .price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--gold-dark);
+    margin: 10px 0;
+}
+
+/* MAPPA EMBED CONTATTI */
+.map-embed {
+    width: 100%;
+    border: 0;
+    border-radius: 16px;
+    height: 260px;
+    margin-top: 12px;
+}
+
+/* BOTTONE FLOAT WHATSAPP */
+.whatsapp-float {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 999px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    z-index: 9999;
+}
+
+.whatsapp-float span {
+    font-weight: 600;
+}
+/* ============================================
+   SEZIONE APP GYMKONG — STILE "GORA"
+=============================================== */
+
+.app-section {
+    padding: 60px 20px 80px;
+}
+
+.app-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.app-phone img {
+    width: 100%;
+    max-width: 430px;
+    display: block;
+    margin: 0 auto;
+    transform: rotate(-4deg);
+}
+
+.app-text h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 26px;
+}
+
+.app-text strong {
+    font-weight: 800;
+    color: #222;
+}
+
+.store-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 14px;
+    margin-bottom: 28px;
+}
+
+.store-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: white;
+    transition: .2s;
+}
+
+.store-btn:hover {
+    border-color: var(--gold-dark);
+    transform: translateY(-3px);
+}
+
+.store-btn .icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.techno-logo img {
+    width: 150px;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .app-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .app-phone img {
+        max-width: 350px;
+        margin-bottom: 20px;
+        transform: rotate(0deg);
+    }
+
+    .store-buttons {
+        justify-content: center;
+    }
+}
+/* ============================
+   iPhone 15 Pro realistic mockup
+=============================== */
+
+.app-phone img {
+    width: 100%;
+    max-width: 460px;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.35));
+    transform: rotate(+1deg);
+    transition: 0.3s ease;
+}
+
+.app-phone img:hover {
+    transform: rotate(-3deg) scale(1.03);
+}
+/* LOGO COME IMMAGINE AL CENTRO HEADER */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    height: 50px;   /* cambia se lo vuoi più grande */
+    display: block;
+}
+
+/* HERO CON VIDEO: SISTEMA DEFINITIVO */
+.hero {
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
+    text-align: center;
+    padding: 420px 210px 210px; /* mantengo le proporzioni che ti piacciono */
+    background: none; /* tolgo il rettangolo oro fisso */
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.45;   /* così il testo si vede bene */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+/* Titolo HERO oro chiaro */
+.hero-content h1 {
+    color: #e6c978 !important; /* oro luminoso */
+    text-shadow: 0 0 12px rgba(0,0,0,0.35); /* migliora leggibilità sul video */
+}
+
+/* Sottotitolo bianco */
+.hero-content p {
+    color: #ffffff !important;
+}
+
+.two-cols-video {
+    width: 100%;
+    border-radius: 22px;
+    object-fit: cover;
+}
+/* DESCRIZIONE CORSI APRI/CHIUDI */
+.desc {
+    display: none;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.more {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #c8102e;
+    font-weight: 600;
+    cursor: pointer;
+}
+.planning-full {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.app-rules {
+    margin-top: 40px;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.rule-box {
+    padding: 20px;
+}
+
+.rule-icon {
+    width: 55px;
+    margin-bottom: 12px;
+}
+
